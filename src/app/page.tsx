@@ -1,16 +1,27 @@
+import { PostList } from "@/components/PostList";
+import { SpinLoader } from "@/components/SpinLoader";
 import clsx from "clsx";
 import Image from "next/image";
+import { Suspense } from "react";
 
 export default function HomePage() {
   return (
     <div>
-      <h1
-        className={clsx(
-          "text-xl font-bold text-gray-800 hover:text-blue-500 transition-colors duration-300 cursor-pointer mb-4",
-        )}
-      >
-        Hello World
-      </h1>
+      <header>
+        <h1 className="text-6x1 font-bold text-center py-8">
+          Welcome to my blog
+        </h1>
+      </header>
+
+      <Suspense fallback={<SpinLoader />}>
+        <PostList />
+      </Suspense>
+
+      <footer>
+        <p className="text-6x1 font-bold text-center py-8">
+          Footer for my blog
+        </p>
+      </footer>
     </div>
   );
 }
