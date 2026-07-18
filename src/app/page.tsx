@@ -10,20 +10,11 @@ import { Suspense } from "react";
 
 export default function HomePage() {
   return (
-    <Container>
-      <Header />
-
-      <PostFeatured />
-
-      <Suspense fallback={<SpinLoader />}>
+    <>
+      <Suspense fallback={<SpinLoader className="min-h-20 mb-16" />}>
+        <PostFeatured />
         <PostList />
       </Suspense>
-
-      <footer>
-        <p className="text-6x1 font-bold text-center py-8">
-          Footer for my blog
-        </p>
-      </footer>
-    </Container>
+    </>
   );
 }
